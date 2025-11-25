@@ -224,3 +224,15 @@ int mcp342x_read_channel_voltage(mcp342x_t *dev, uint8_t channel, double *voltag
 
     return 0;
 }
+
+
+int mcp342x_expected_sample_time(mcp342x_t *dev){
+    int sample_time_ms = 1000/3.75;
+    switch (dev->resolution) {
+        case MCP342X_BIT_12: sample_time_ms = 1000/240; break;
+        case MCP342X_BIT_14: sample_time_ms = 1000/60; break;
+        case MCP342X_BIT_16: sample_time_ms = 1000/15; break;
+        case MCP342X_BIT_18: sample_time_ms = 1000/3.75; break;
+    }
+    return sample_time_ms;
+}

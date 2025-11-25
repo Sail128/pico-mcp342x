@@ -124,6 +124,18 @@ int mcp342x_read_voltage(mcp342x_t *dev, double *voltage);
  */
 int mcp342x_read_channel_voltage(mcp342x_t *dev, uint8_t channel, double *voltage);
 
+/**
+ * @brief   Get the expected sample time in milliseconds
+ *
+ * This function returns the expected sample time based on the configured
+ * resolution of the device.
+ *
+ * @param[in] dev       Device descriptor of the MCP342X device
+ *
+ * @return              Expected sample time in milliseconds
+ */
+int mcp342x_expected_sample_time(mcp342x_t *dev);
+
 #ifdef __cplusplus
 }
 #endif
